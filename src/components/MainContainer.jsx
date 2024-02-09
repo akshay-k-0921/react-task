@@ -25,7 +25,7 @@ function MainContainer() {
                 'name' : 'Anitta K C',
                 'profile_image': profilePicture,
             },
-            'likes' : 3,
+            'is_liked' : false,
             'comments' :[
                 {
                     'comment_id':1,
@@ -64,7 +64,7 @@ function MainContainer() {
                 'name' : 'Paul K P',
                 'profile_image': profilePictureTwo,
             },
-            'likes' : 3,
+            'is_liked' : false,
             'comments' :[
                 {
                     'comment_id':1,
@@ -104,7 +104,7 @@ function MainContainer() {
         <UploadImage />
         {
             postDetails.map((data) => (
-                <Posts data={data}/>
+                <Posts key={data.id} data={data}/>
             ))
         }
         

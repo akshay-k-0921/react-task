@@ -17,6 +17,7 @@ function PostModal({show,setShow,data,commentData,setCommentData}) {
 
     const numberOfComments = commentData.length
     const postData = data;
+    const [isLiked, setLiked] = useState(postData.is_liked)
     const [tempComment, setTempComment] = useState("")
     const [error, setError] = useState("")
     const [recentImages, SetRecentImages] = useState([
@@ -41,7 +42,6 @@ function PostModal({show,setShow,data,commentData,setCommentData}) {
     const handleSubmit = (e) =>{
         setError('')
         e.preventDefault();
-        console.log(e.target.value);
         if (tempComment) {
             setCommentData([...commentData,{
                 'comment_id':numberOfComments+1,
@@ -56,6 +56,10 @@ function PostModal({show,setShow,data,commentData,setCommentData}) {
             setError("Please enter the comment first")
         }
         
+    }
+
+    const handleLike = () => {
+        setLiked(!isLiked)
     }
 
   return (
@@ -91,7 +95,12 @@ function PostModal({show,setShow,data,commentData,setCommentData}) {
                         </ProfileContainer>
 
                         <Buttons>
-                            <LikeButton>Like</LikeButton>
+                            {
+                                isLiked?
+                                <LikeButton onClick={handleLike} className={isLiked?"liked":""}>Unlike</LikeButton>
+                                :
+                                <LikeButton onClick={handleLike} className={isLiked?"liked":""}>Like</LikeButton>
+                            }
                             <CommentButton>Comment</CommentButton>
                         </Buttons>
                         
@@ -277,6 +286,10 @@ const LikeButton = styled.a`
     margin-right: 20px;
     border-radius: 40px;
     text-align: center;
+    &.liked{
+        background: #CF796C;
+        color: #fff;
+    }
 `
 
 const CommentButton = styled.a`

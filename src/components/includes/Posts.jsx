@@ -13,6 +13,8 @@ import PostModal from './PostModal'
 function Posts(data) {
 
     const postData = data.data;
+    const [isLiked, setLiked] = useState(postData.is_liked)
+    // const isLiked = postData.is_liked
     const [commentData, setCommentData] = useState(postData.comments)
     const [isActive,setActive] = useState(false)
     const numberOfComments = commentData.length
@@ -26,6 +28,10 @@ function Posts(data) {
     const dropDown = () => {
         setActive(!isActive)
     }
+
+    const handleLike = () => {
+        setLiked(!isLiked)
+    }    
 
     // useEffect(()=>{
     // },[postData.comments])
@@ -67,8 +73,13 @@ function Posts(data) {
                         <CommentsText onClick={dropDown}>{numberOfComments} Comments</CommentsText>
                     </CommentsContainer>
                 </LikeAndComments>
-                <Buttons onClick={handleModal}>
-                    <LikeButton>Like</LikeButton>
+                <Buttons>
+                    {
+                        isLiked?
+                        <LikeButton onClick={handleLike} className={isLiked?"liked":""}>Unlike</LikeButton>
+                        :
+                        <LikeButton onClick={handleLike} className={isLiked?"liked":""}>Like</LikeButton>
+                    }
                     <CommentButton onClick={dropDown}>Comment</CommentButton>
                 </Buttons>
                 <div className={isActive?'active commetns':'commetns'}>
@@ -267,6 +278,10 @@ const LikeButton = styled.a`
     margin-right: 20px;
     border-radius: 40px;
     text-align: center;
+    &.liked{
+        background: #CF796C;
+        color: #fff;
+    }
 `
 
 const CommentButton = styled.a`

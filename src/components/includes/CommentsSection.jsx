@@ -4,11 +4,7 @@ import styled from 'styled-components'
 function CommentsSection(data) {
 
     const commentData = data.data
-    const replys = commentData.replys
-
-    console.log(commentData);
-
-    
+    const replys = commentData.replys    
 
   return (
     <Card>
