@@ -80,7 +80,7 @@ function Posts(data) {
                         :
                         <LikeButton onClick={handleLike} className={isLiked?"liked":""}>Like</LikeButton>
                     }
-                    <CommentButton onClick={dropDown}>Comment</CommentButton>
+                    <CommentButton  onClick={handleModal}>Comment</CommentButton>
                 </Buttons>
                 <div className={isActive?'active commetns':'commetns'}>
                     {
