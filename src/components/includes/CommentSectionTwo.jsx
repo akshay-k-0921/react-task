@@ -1,14 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function CommentsSection(data) {
+function CommentSectionTwo(data) {
 
     const commentData = data.data
     const replys = commentData.replys
-
-    console.log(commentData);
-
-    
 
   return (
     <Card>
@@ -61,10 +57,10 @@ function CommentsSection(data) {
   )
 }
 
-export default CommentsSection
+export default CommentSectionTwo
 
 const Card = styled.div`
-    
+
 `
 
 const CommentContainer = styled.div``
@@ -84,11 +80,11 @@ const TopContainer = styled.div`
         border-style: solid;
         border-color: #959595;
         position: absolute;
-        width: 51px;
-        height: 122px;
-        left: -52px;
-        top: -87px;
-        border-radius: 0 0 0 20px;
+        width: 60px;
+        height: 86px;
+        left: -62px;
+        top: -63px;
+        border-radius: 0 0 0 16px;
     }
 `
 
@@ -100,16 +96,19 @@ const ProfileContainer = styled.div`
 
 const ProfileImageContainer = styled.div``
 
-const ProfileImage = styled.img``
+const ProfileImage = styled.img`
+    width: 40px;
+    height: 40px;
+`
 
 const ProfileName = styled.span`
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
 
 `
 
 const CommentedDate = styled.span`
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: #666;
 `
@@ -127,8 +126,8 @@ const Options = styled.div`
 
 const CommentText = styled.p`
     background: #ECC8AE4D;
-    padding: 30px 30px;
-    margin-left: 80px;
+    padding: 15px 30px;
+    margin-left: 50px;
     border-radius: 0 30px 30px 30px;
     display: flex;
     justify-content: space-between;
@@ -145,5 +144,3 @@ const Commentreply = styled.div`
     margin-left: 80px;
     margin-top: 5px;
 `
-
-

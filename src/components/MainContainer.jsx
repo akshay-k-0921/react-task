@@ -12,7 +12,7 @@ import postImg from '../assets/images/post1.jpg'
 import postImgTwo from '../assets/images/post2.jpg'
 import commentProfileImg from '../assets/images/Ellipse 4.png'
 import commentProfileImgTwo from '../assets/images/Ellipse 12.png'
-import replayProfileImg from '../assets/images/Ellipse 6.png'
+import replyProfileImg from '../assets/images/Ellipse 6.png'
 
 function MainContainer() {
 
@@ -33,13 +33,13 @@ function MainContainer() {
                     'comment_profile_name' : 'Srutheesh',
                     'date' : '1 Week ago',
                     'comment': 'Nice Images....Good Work',
-                    'replays' : [
+                    'replys' : [
                         {
-                            'replay_id' : 1,
-                            'replay_profile_name' : 'Anitta K C',
-                            'replay_profile_picture' : replayProfileImg,
+                            'reply_id' : 1,
+                            'reply_profile_name' : 'Anitta K C',
+                            'reply_profile_picture' : replyProfileImg,
                             'date' : '1 Week ago',
-                            'replay': 'Thankuu....',
+                            'reply': 'Thankuu....',
                         }
                     ]
                 },
@@ -49,7 +49,7 @@ function MainContainer() {
                     'comment_profile_name' : 'Simi K Sunny',
                     'comment': 'Nice Work....',
                     'date' : '1 Week ago',
-                    'replays' : [
+                    'replys' : [
                         
                     ] 
                 }
@@ -72,13 +72,13 @@ function MainContainer() {
                     'comment_profile_name' : 'Srutheesh',
                     'date' : '1 Week ago',
                     'comment': 'Nice Images....Good Work',
-                    'replays' : [
+                    'replys' : [
                         {
-                            'replay_id' : 1,
-                            'replay_profile_name' : 'Anitta K C',
-                            'replay_profile_picture' : replayProfileImg,
+                            'reply_id' : 1,
+                            'reply_profile_name' : 'Anitta K C',
+                            'reply_profile_picture' : replyProfileImg,
                             'date' : '1 Week ago',
-                            'replay': 'Thankuu....',
+                            'reply': 'Thankuu....',
                         }
                     ]
                 },
@@ -88,7 +88,7 @@ function MainContainer() {
                     'comment_profile_name' : 'Simi K Sunny',
                     'comment': 'Nice Work....',
                     'date' : '1 Week ago',
-                    'replays' : [
+                    'replys' : [
                         
                     ] 
                 }
@@ -96,6 +96,7 @@ function MainContainer() {
             
         },
     ])
+    
 
   return (
     <>
@@ -103,7 +104,7 @@ function MainContainer() {
         <UploadImage />
         {
             postDetails.map((data) => (
-                <Posts data={data} />
+                <Posts data={data}/>
             ))
         }
         

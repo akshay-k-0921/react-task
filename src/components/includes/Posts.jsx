@@ -8,13 +8,20 @@ import postImg from '../../assets/images/post1.jpg'
 import likedProfiles from '../../assets/images/Group 4.png'
 import plus from '../../assets/images/plus.png'
 import styled from 'styled-components'
+import PostModal from './PostModal'
 
 function Posts(data) {
 
     const postData = data.data;
     const [commentData, setCommentData] = useState(postData.comments)
     const [isActive,setActive] = useState(false)
-    const numberOfComments = commentData.length 
+    const numberOfComments = commentData.length
+    const [show, setShow] = useState(false);
+
+
+    const handleModal = () => {
+        setShow(!show);
+    };
 
     const dropDown = () => {
         setActive(!isActive)
@@ -22,8 +29,6 @@ function Posts(data) {
 
     // useEffect(()=>{
     // },[postData.comments])
-
-    // console.log(postData);
 
   return (
     <Container>
@@ -50,7 +55,7 @@ function Posts(data) {
                         <PlusImage src={plus} />
                     </PlusContiner>
                 </SecondContainer>
-                <PostImageContainer>
+                <PostImageContainer onClick={handleModal}>
                     <PostImage src={postData.image}/>
                 </PostImageContainer>
                 <LikeAndComments>
@@ -62,9 +67,9 @@ function Posts(data) {
                         <CommentsText onClick={dropDown}>{numberOfComments} Comments</CommentsText>
                     </CommentsContainer>
                 </LikeAndComments>
-                <Buttons>
+                <Buttons onClick={handleModal}>
                     <LikeButton>Like</LikeButton>
-                    <CommentButton>Comment</CommentButton>
+                    <CommentButton onClick={dropDown}>Comment</CommentButton>
                 </Buttons>
                 <div className={isActive?'active commetns':'commetns'}>
                     {
@@ -78,6 +83,20 @@ function Posts(data) {
                 </div>
                 
             </Card>
+            {
+                show?
+                <PostModal
+                    show={show}
+                    setShow={setShow}
+                    data={postData}
+                    // setPostDetails={setPostDetails}
+                    commentData={commentData}
+                    setCommentData={setCommentData}
+                    numberOfComments={numberOfComments}
+                />
+                :
+                <div></div>
+            }
         </WrapperContainer>
     </Container>
   )
